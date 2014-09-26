@@ -1,39 +1,43 @@
 {
-    "update_url": "http://clients2.google.com/service/update2/crx",
-    "manifest_version": 2,
-    "name": "SG_crx",
-    "version": "3.0.1",
-    "description": "View definitions easily as you browse the web.",
-    "background":
+  "name": "SG",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "This extension was created for SG",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  
+  "content_scripts": [
     {
-        "page": "background.html",
-        "persistent": false
-    },
-    "options_page": "options.html",
-    "content_scripts": [
-        {
-            "matches": ["<all_urls>"],
-            "css": ["content_css_min.css"],
-            "js": ["content_js_min.js"],
-            "all_frames": true
-        }
-    ],
-    "browser_action":
-    {
-        "default_icon": "static/icon19.png",
-        "default_title": "SG Dictionary",
-        "default_popup": "page_action.html"
-    },
-    "permissions": [
-            "tabs",
-            "https://clients5.google.com/*"
-    ],
-    "icons":
-    {
-        "16": "static/icon16.png",
-        "32": "static/icon32.png",
-        "48": "static/icon48.png",
-        "128": "static/icon128.png"
-    },
-    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com https://clients5.google.com; object-src 'self'"
+      "matches": ["<all_urls>"],
+      "js": ["src/alex.js"]
+    }
+  ],
+  
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "browser action demo",
+    "default_popup": "src/browser_action.html"
+  },
+  "permissions": [
+    "bookmarks",
+    "chrome://favicon/",
+    "clipboardRead",
+    "clipboardWrite",
+    "contentSettings",
+    "contextMenus",
+    "cookies",
+    "fileBrowserHandler",
+    "tts",
+    "ttsEngine",
+    "history",
+    "idle",
+    "management",
+    "notifications",
+    "tabs",
+    "geolocation"
+  ]
 }
